@@ -18,7 +18,7 @@ class CreateCustomersTable extends Migration
             $table->string('nama');
             $table->string('alamat');
             $table->string('no_telepon');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->timestamps();
         });
     }

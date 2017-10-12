@@ -6,15 +6,16 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    function CreateUnit(){
+    function CreateUnit(Request $req){
         $createunit = new UnitRumah;
-        $createunit->kavling = "New Kavling";
-        $createunit->blok = "New Blok";
-        $createunit->no_rumah = "New no Rumah";
-        $createunit->harga_rumah = "New Harga Rumah";
-        $createunit->luas_tanah = "New Luas Tanah";
-        $createunit->luas_bangunan = "New Luas Bangunan";
+        $createunit->kavling = $req->input('kavling');
+        $createunit->blok = $req->input('blok');
+        $createunit->no_rumah = $req->input('no_rumah');
+        $createunit->harga_rumah = $req->input('harga_rumah');
+        $createunit->luas_tanah = $req->input('luas_tanah');
+        $createunit->luas_bangunan = $req->input('luas_bangunan');
         $createunit->save();
+        return response()->json($createunit, 200);
     }
 
     function DeleteUnit($id){
